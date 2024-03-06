@@ -14,7 +14,7 @@ Library            RPA.JSON
 #  b. 預報 (如多雲午後短暫雷陣雨)
 #  c. 氣溫 (28-35)
 #  d. 產出excel
-# TESTTEST
+
 
 *** Tasks ***
 Weather Prediction
