@@ -25,14 +25,14 @@ Weather Prediction
     Log    ${forecast_list}
     ${temp_list} =     Collect Temp
     Log    ${temp_list}
-    Create Excel    result/result1.xlsx    ${date_list}    ${forecast_list}    ${temp_list}
+    Create Excel    /result1.xlsx    ${date_list}    ${forecast_list}    ${temp_list}
     Capture Page Screenshot    test.png
 
 
 
 *** Keywords ***
 Open Website
-    Open Available Browser    https://www.cwb.gov.tw/V8/C/W/County/County.html?CID=63
+    Open Available Browser    https://www.cwa.gov.tw/V8/C/W/County/County.html?CID=63
 Collect Date
     ${date_locator} =    Set Variable    //th[@scope='col']
     ${date_elements} =    Get WebElements    ${date_locator}
