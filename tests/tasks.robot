@@ -27,7 +27,8 @@ Weather Prediction
     Log    ${forecast_list}
     ${temp_list} =     Collect Temp
     Log    ${temp_list}
-    Create Excel    /result1.xlsx    ${date_list}    ${forecast_list}    ${temp_list}
+    Run Keyword And Ignore Error    Create Excel    /result1.xlsx    ${date_list}    ${forecast_list}    ${temp_list}
+    Run Keyword And Ignore Error    Create Excel    /result/result1.xlsx    ${date_list}    ${forecast_list}    ${temp_list}
     Capture Page Screenshot    test.png
 
 
