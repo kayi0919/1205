@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20240312 09:29:36.510" rpa="true" schemaversion="4">
+<suite id="s1" name="Tasks" source="D:\test\1205\tests\tasks.robot">
+<test id="s1-t1" name="Weather Prediction" line="21">
+<kw name="Open Website">
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>https://www.cwa.gov.tw/V8/C/W/County/County.html?CID=63</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<msg timestamp="20240312 09:29:38.553" level="INFO">Webdriver version taken into use: ChromeDriver 117.0.5938.92 (67649b10b92bb182fba357831ef7dd6a1baa5648-refs/branch-heads/5938_62@{#14})
+</msg>
+<msg timestamp="20240312 09:29:39.956" level="INFO">Targeted browser version: 122.0.6261.112</msg>
+<msg timestamp="20240312 09:29:39.956" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20240312 09:29:44.377" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20240312 09:29:49.695" level="INFO">Downloaded webdriver to: C:\Users\vince\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\122.0.6261.111\chromedriver-win32/chromedriver.exe</msg>
+<msg timestamp="20240312 09:29:49.871" level="INFO">Webdriver version taken into use: ChromeDriver 122.0.6261.111 (9d4c1072da62b411b351a38b9ed6214ab236aa7b-refs/branch-heads/6261@{#1015})
+</msg>
+<msg timestamp="20240312 09:29:52.022" level="INFO">Targeted browser version: 122.0.6261.112</msg>
+<msg timestamp="20240312 09:29:52.023" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20240312 09:29:53.558" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20240312 09:29:53.558" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;Message: session not created: This version of ChromeDriver only supports Chrome version 117
+Current browser version is 122.0.6261.112 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+Stacktrace:
+	GetHandleVerifier [0x00E8CEB3+45171]
+	(No symbol) [0x00E19101]
+	(No symbol) [0x00D0BE1D]
+	(No symbol) [0x00D34441]
+	(No symbol) [0x00D33C2A]
+	(No symbol) [0x00D2F69D]
+	(No symbol) [0x00D2D640]
+	(No symbol) [0x00D61AA6]
+	(No symbol) [0x00D6163C]
+	(No symbol) [0x00D5AE46]
+	(No symbol) [0x00D3675E]
+	(No symbol) [0x00D378FD]
+	GetHandleVerifier [0x011454B9+2897529]
+	GetHandleVerifier [0x0118DC6B+3194411]
+	GetHandleVerifier [0x01187A41+3169281]
+	GetHandleVerifier [0x00F16130+606960]
+	(No symbol) [0x00E22E7C]
+	(No symbol) [0x00E1F008]
+	(No symbol) [0x00E1F12F]
+	(No symbol) [0x00E11827]
+	BaseThreadInitThunk [0x75BAFCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x779D7C5E+286]
+	RtlGetAppContainerNamedObjectPath [0x779D7C2E+238]
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;True&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20240312 09:29:53.558" level="INFO">Opening url 'https://www.cwa.gov.tw/V8/C/W/County/County.html?CID=63'</msg>
+<status status="PASS" starttime="20240312 09:29:38.284" endtime="20240312 09:29:54.976"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:38.283" endtime="20240312 09:29:54.976"/>
+</kw>
+<kw name="Collect Date">
+<var>${date_list}</var>
+<kw name="Set Variable" library="BuiltIn">
+<var>${date_locator}</var>
+<arg>//th[@scope='col']</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240312 09:29:54.978" level="INFO">${date_locator} = //th[@scope='col']</msg>
+<status status="PASS" starttime="20240312 09:29:54.978" endtime="20240312 09:29:54.978"/>
+</kw>
+<kw name="Get WebElements" library="RPA.Browser.Selenium">
+<var>${date_elements}</var>
+<arg>${date_locator}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.054" level="INFO">${date_elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.72")&gt;, &lt;selenium.webdriv...</msg>
+<status status="PASS" starttime="20240312 09:29:54.978" endtime="20240312 09:29:55.054"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${date_list}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20240312 09:29:55.055" level="INFO">${date_list} = []</msg>
+<status status="PASS" starttime="20240312 09:29:55.055" endtime="20240312 09:29:55.055"/>
+</kw>
+<for flavor="IN">
+<var>${element}</var>
+<value>@{date_elements}</value>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.72")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${date_text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.145" level="INFO">${date_text} = 03/12
+星期二</msg>
+<status status="PASS" starttime="20240312 09:29:55.056" endtime="20240312 09:29:55.145"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${date_list}</arg>
+<arg>${date_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.145" endtime="20240312 09:29:55.146"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.056" endtime="20240312 09:29:55.146"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.73")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${date_text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.163" level="INFO">${date_text} = 03/13
+星期三</msg>
+<status status="PASS" starttime="20240312 09:29:55.146" endtime="20240312 09:29:55.163"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${date_list}</arg>
+<arg>${date_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.164" endtime="20240312 09:29:55.164"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.146" endtime="20240312 09:29:55.164"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.74")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${date_text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.180" level="INFO">${date_text} = 03/14
+星期四</msg>
+<status status="PASS" starttime="20240312 09:29:55.164" endtime="20240312 09:29:55.180"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${date_list}</arg>
+<arg>${date_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.180" endtime="20240312 09:29:55.180"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.164" endtime="20240312 09:29:55.181"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.75")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${date_text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.196" level="INFO">${date_text} = 03/15
+星期五</msg>
+<status status="PASS" starttime="20240312 09:29:55.181" endtime="20240312 09:29:55.196"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${date_list}</arg>
+<arg>${date_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.196" endtime="20240312 09:29:55.196"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.181" endtime="20240312 09:29:55.197"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.76")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${date_text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.211" level="INFO">${date_text} = 03/16
+星期六</msg>
+<status status="PASS" starttime="20240312 09:29:55.197" endtime="20240312 09:29:55.211"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${date_list}</arg>
+<arg>${date_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.212" endtime="20240312 09:29:55.212"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.197" endtime="20240312 09:29:55.212"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.77")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${date_text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.226" level="INFO">${date_text} = 03/17
+星期日</msg>
+<status status="PASS" starttime="20240312 09:29:55.212" endtime="20240312 09:29:55.226"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${date_list}</arg>
+<arg>${date_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.227" endtime="20240312 09:29:55.227"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.212" endtime="20240312 09:29:55.227"/>
+</iter>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.78")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${date_text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.243" level="INFO">${date_text} = 03/18
+星期一</msg>
+<status status="PASS" starttime="20240312 09:29:55.227" endtime="20240312 09:29:55.243"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${date_list}</arg>
+<arg>${date_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.244" endtime="20240312 09:29:55.244"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.227" endtime="20240312 09:29:55.244"/>
+</iter>
+<status status="PASS" starttime="20240312 09:29:55.055" endtime="20240312 09:29:55.244"/>
+</for>
+<msg timestamp="20240312 09:29:55.245" level="INFO">${date_list} = ['03/12\n星期二', '03/13\n星期三', '03/14\n星期四', '03/15\n星期五', '03/16\n星期六', '03/17\n星期日', '03/18\n星期一']</msg>
+<status status="PASS" starttime="20240312 09:29:54.977" endtime="20240312 09:29:55.245"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${date_list}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240312 09:29:55.246" level="INFO">['03/12\n星期二', '03/13\n星期三', '03/14\n星期四', '03/15\n星期五', '03/16\n星期六', '03/17\n星期日', '03/18\n星期一']</msg>
+<status status="PASS" starttime="20240312 09:29:55.245" endtime="20240312 09:29:55.246"/>
+</kw>
+<kw name="Collect Forecast">
+<var>${forecast_list}</var>
+<kw name="Set Variable" library="BuiltIn">
+<var>${forecast_locator}</var>
+<arg>//tr[@class='day']//span[@class='signal']/img</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240312 09:29:55.247" level="INFO">${forecast_locator} = //tr[@class='day']//span[@class='signal']/img</msg>
+<status status="PASS" starttime="20240312 09:29:55.246" endtime="20240312 09:29:55.247"/>
+</kw>
+<kw name="Get WebElements" library="RPA.Browser.Selenium">
+<var>${forecast_elements}</var>
+<arg>${forecast_locator}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.272" level="INFO">${forecast_elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.80")&gt;, &lt;selenium.webdriv...</msg>
+<status status="PASS" starttime="20240312 09:29:55.247" endtime="20240312 09:29:55.272"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${forecast_list}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20240312 09:29:55.272" level="INFO">${forecast_list} = []</msg>
+<status status="PASS" starttime="20240312 09:29:55.272" endtime="20240312 09:29:55.273"/>
+</kw>
+<for flavor="IN">
+<var>${forecast_element}</var>
+<value>@{forecast_elements}</value>
+<iter>
+<var name="${forecast_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.80")&gt;</var>
+<kw name="Get Element Attribute" library="RPA.Browser.Selenium">
+<var>${forecast_title}</var>
+<arg>${forecast_element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.379" level="INFO">${forecast_title} = 晴時多雲</msg>
+<status status="PASS" starttime="20240312 09:29:55.273" endtime="20240312 09:29:55.379"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${forecast_list}</arg>
+<arg>${forecast_title}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.379" endtime="20240312 09:29:55.380"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.273" endtime="20240312 09:29:55.380"/>
+</iter>
+<iter>
+<var name="${forecast_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.81")&gt;</var>
+<kw name="Get Element Attribute" library="RPA.Browser.Selenium">
+<var>${forecast_title}</var>
+<arg>${forecast_element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.394" level="INFO">${forecast_title} = 晴時多雲</msg>
+<status status="PASS" starttime="20240312 09:29:55.380" endtime="20240312 09:29:55.394"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${forecast_list}</arg>
+<arg>${forecast_title}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.394" endtime="20240312 09:29:55.395"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.380" endtime="20240312 09:29:55.395"/>
+</iter>
+<iter>
+<var name="${forecast_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.82")&gt;</var>
+<kw name="Get Element Attribute" library="RPA.Browser.Selenium">
+<var>${forecast_title}</var>
+<arg>${forecast_element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.406" level="INFO">${forecast_title} = 多雲</msg>
+<status status="PASS" starttime="20240312 09:29:55.395" endtime="20240312 09:29:55.406"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${forecast_list}</arg>
+<arg>${forecast_title}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.406" endtime="20240312 09:29:55.406"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.395" endtime="20240312 09:29:55.406"/>
+</iter>
+<iter>
+<var name="${forecast_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.83")&gt;</var>
+<kw name="Get Element Attribute" library="RPA.Browser.Selenium">
+<var>${forecast_title}</var>
+<arg>${forecast_element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.417" level="INFO">${forecast_title} = 多雲短暫雨</msg>
+<status status="PASS" starttime="20240312 09:29:55.407" endtime="20240312 09:29:55.417"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${forecast_list}</arg>
+<arg>${forecast_title}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.417" endtime="20240312 09:29:55.418"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.407" endtime="20240312 09:29:55.418"/>
+</iter>
+<iter>
+<var name="${forecast_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.84")&gt;</var>
+<kw name="Get Element Attribute" library="RPA.Browser.Selenium">
+<var>${forecast_title}</var>
+<arg>${forecast_element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.428" level="INFO">${forecast_title} = 多雲短暫雨</msg>
+<status status="PASS" starttime="20240312 09:29:55.418" endtime="20240312 09:29:55.428"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${forecast_list}</arg>
+<arg>${forecast_title}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.429" endtime="20240312 09:29:55.429"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.418" endtime="20240312 09:29:55.429"/>
+</iter>
+<iter>
+<var name="${forecast_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.85")&gt;</var>
+<kw name="Get Element Attribute" library="RPA.Browser.Selenium">
+<var>${forecast_title}</var>
+<arg>${forecast_element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.440" level="INFO">${forecast_title} = 多雲短暫雨</msg>
+<status status="PASS" starttime="20240312 09:29:55.429" endtime="20240312 09:29:55.440"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${forecast_list}</arg>
+<arg>${forecast_title}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.440" endtime="20240312 09:29:55.441"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.429" endtime="20240312 09:29:55.441"/>
+</iter>
+<iter>
+<var name="${forecast_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.86")&gt;</var>
+<kw name="Get Element Attribute" library="RPA.Browser.Selenium">
+<var>${forecast_title}</var>
+<arg>${forecast_element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.451" level="INFO">${forecast_title} = 陰短暫雨</msg>
+<status status="PASS" starttime="20240312 09:29:55.441" endtime="20240312 09:29:55.451"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${forecast_list}</arg>
+<arg>${forecast_title}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.452" endtime="20240312 09:29:55.452"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.441" endtime="20240312 09:29:55.452"/>
+</iter>
+<status status="PASS" starttime="20240312 09:29:55.273" endtime="20240312 09:29:55.452"/>
+</for>
+<msg timestamp="20240312 09:29:55.452" level="INFO">${forecast_list} = ['晴時多雲', '晴時多雲', '多雲', '多雲短暫雨', '多雲短暫雨', '多雲短暫雨', '陰短暫雨']</msg>
+<status status="PASS" starttime="20240312 09:29:55.246" endtime="20240312 09:29:55.452"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${forecast_list}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240312 09:29:55.453" level="INFO">['晴時多雲', '晴時多雲', '多雲', '多雲短暫雨', '多雲短暫雨', '多雲短暫雨', '陰短暫雨']</msg>
+<status status="PASS" starttime="20240312 09:29:55.453" endtime="20240312 09:29:55.453"/>
+</kw>
+<kw name="Collect Temp">
+<var>${temp_list}</var>
+<kw name="Set Variable" library="BuiltIn">
+<var>${temp_locator}</var>
+<arg>//tr[@class='day']//p[@class='text-center']</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240312 09:29:55.454" level="INFO">${temp_locator} = //tr[@class='day']//p[@class='text-center']</msg>
+<status status="PASS" starttime="20240312 09:29:55.454" endtime="20240312 09:29:55.454"/>
+</kw>
+<kw name="Get WebElements" library="RPA.Browser.Selenium">
+<var>${temp_elements}</var>
+<arg>${temp_locator}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.470" level="INFO">${temp_elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.87")&gt;, &lt;selenium.webdriv...</msg>
+<status status="PASS" starttime="20240312 09:29:55.454" endtime="20240312 09:29:55.470"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${temp_list}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20240312 09:29:55.470" level="INFO">${temp_list} = []</msg>
+<status status="PASS" starttime="20240312 09:29:55.470" endtime="20240312 09:29:55.470"/>
+</kw>
+<for flavor="IN">
+<var>${temp_element}</var>
+<value>@{temp_elements}</value>
+<iter>
+<var name="${temp_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.87")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${temp_text}</var>
+<arg>${temp_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.484" level="INFO">${temp_text} = 14 - 21</msg>
+<status status="PASS" starttime="20240312 09:29:55.471" endtime="20240312 09:29:55.484"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${temp_list}</arg>
+<arg>${temp_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.484" endtime="20240312 09:29:55.485"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.471" endtime="20240312 09:29:55.485"/>
+</iter>
+<iter>
+<var name="${temp_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.88")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${temp_text}</var>
+<arg>${temp_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.498" level="INFO">${temp_text} = 13 - 19</msg>
+<status status="PASS" starttime="20240312 09:29:55.485" endtime="20240312 09:29:55.498"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${temp_list}</arg>
+<arg>${temp_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.498" endtime="20240312 09:29:55.498"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.485" endtime="20240312 09:29:55.498"/>
+</iter>
+<iter>
+<var name="${temp_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.89")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${temp_text}</var>
+<arg>${temp_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.511" level="INFO">${temp_text} = 14 - 23</msg>
+<status status="PASS" starttime="20240312 09:29:55.498" endtime="20240312 09:29:55.511"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${temp_list}</arg>
+<arg>${temp_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.511" endtime="20240312 09:29:55.511"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.498" endtime="20240312 09:29:55.511"/>
+</iter>
+<iter>
+<var name="${temp_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.90")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${temp_text}</var>
+<arg>${temp_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.522" level="INFO">${temp_text} = 14 - 23</msg>
+<status status="PASS" starttime="20240312 09:29:55.512" endtime="20240312 09:29:55.522"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${temp_list}</arg>
+<arg>${temp_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.523" endtime="20240312 09:29:55.523"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.511" endtime="20240312 09:29:55.523"/>
+</iter>
+<iter>
+<var name="${temp_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.91")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${temp_text}</var>
+<arg>${temp_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.534" level="INFO">${temp_text} = 15 - 23</msg>
+<status status="PASS" starttime="20240312 09:29:55.524" endtime="20240312 09:29:55.534"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${temp_list}</arg>
+<arg>${temp_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.534" endtime="20240312 09:29:55.534"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.524" endtime="20240312 09:29:55.534"/>
+</iter>
+<iter>
+<var name="${temp_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.92")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${temp_text}</var>
+<arg>${temp_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.547" level="INFO">${temp_text} = 15 - 23</msg>
+<status status="PASS" starttime="20240312 09:29:55.535" endtime="20240312 09:29:55.547"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${temp_list}</arg>
+<arg>${temp_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.548" endtime="20240312 09:29:55.548"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.535" endtime="20240312 09:29:55.548"/>
+</iter>
+<iter>
+<var name="${temp_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="4d9285daf32072c315ba5c356441a0e5", element="f.2DC8EC049BD122CF529EEF72555E3303.d.F54C1D1FA28FF73022CBF87E2CEF933B.e.93")&gt;</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${temp_text}</var>
+<arg>${temp_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240312 09:29:55.560" level="INFO">${temp_text} = 15 - 18</msg>
+<status status="PASS" starttime="20240312 09:29:55.548" endtime="20240312 09:29:55.560"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${temp_list}</arg>
+<arg>${temp_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20240312 09:29:55.560" endtime="20240312 09:29:55.560"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.548" endtime="20240312 09:29:55.560"/>
+</iter>
+<status status="PASS" starttime="20240312 09:29:55.471" endtime="20240312 09:29:55.560"/>
+</for>
+<msg timestamp="20240312 09:29:55.561" level="INFO">${temp_list} = ['14 - 21', '13 - 19', '14 - 23', '14 - 23', '15 - 23', '15 - 23', '15 - 18']</msg>
+<status status="PASS" starttime="20240312 09:29:55.453" endtime="20240312 09:29:55.561"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${temp_list}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240312 09:29:55.562" level="INFO">['14 - 21', '13 - 19', '14 - 23', '14 - 23', '15 - 23', '15 - 23', '15 - 18']</msg>
+<status status="PASS" starttime="20240312 09:29:55.561" endtime="20240312 09:29:55.562"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>Create Excel</arg>
+<arg>/result1.xlsx</arg>
+<arg>${date_list}</arg>
+<arg>${forecast_list}</arg>
+<arg>${temp_list}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Create Excel">
+<arg>/result1.xlsx</arg>
+<arg>${date_list}</arg>
+<arg>${forecast_list}</arg>
+<arg>${temp_list}</arg>
+<kw name="Create Workbook" library="RPA.Excel.Files">
+<arg>${file_name}</arg>
+<doc>Create and open a new Excel workbook.</doc>
+<status status="PASS" starttime="20240312 09:29:55.563" endtime="20240312 09:29:55.566"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>1</arg>
+<arg>日期</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20240312 09:29:55.567" endtime="20240312 09:29:55.567"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>2</arg>
+<arg>預報</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20240312 09:29:55.568" endtime="20240312 09:29:55.568"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>3</arg>
+<arg>氣溫</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20240312 09:29:55.568" endtime="20240312 09:29:55.569"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${table}</var>
+<arg>日期=${header}</arg>
+<arg>預報=${signals}</arg>
+<arg>氣溫=${body}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240312 09:29:55.570" level="INFO">${table} = {'日期': ['03/12\n星期二', '03/13\n星期三', '03/14\n星期四', '03/15\n星期五', '03/16\n星期六', '03/17\n星期日', '03/18\n星期一'], '預報': ['晴時多雲', '晴時多雲', '多雲', '多雲短暫雨', '多雲短暫雨', '多雲短暫雨', '陰短暫雨'], '氣溫': ['14 - 21', '13 - 19',...</msg>
+<status status="PASS" starttime="20240312 09:29:55.569" endtime="20240312 09:29:55.570"/>
+</kw>
+<kw name="Append Rows To Worksheet" library="RPA.Excel.Files">
+<arg>${table}</arg>
+<doc>Append values to the end of the worksheet.</doc>
+<status status="PASS" starttime="20240312 09:29:55.570" endtime="20240312 09:29:55.571"/>
+</kw>
+<kw name="Save Workbook" library="RPA.Excel.Files">
+<doc>Save the active workbook.</doc>
+<status status="PASS" starttime="20240312 09:29:55.571" endtime="20240312 09:29:55.611"/>
+</kw>
+<kw name="Close Workbook" library="RPA.Excel.Files">
+<doc>Close the active workbook.</doc>
+<msg timestamp="20240312 09:29:55.612" level="INFO">Closing workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000023F89BE2550&gt;</msg>
+<status status="PASS" starttime="20240312 09:29:55.611" endtime="20240312 09:29:55.612"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.562" endtime="20240312 09:29:55.612"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.562" endtime="20240312 09:29:55.612"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>Create Excel</arg>
+<arg>/result/result1.xlsx</arg>
+<arg>${date_list}</arg>
+<arg>${forecast_list}</arg>
+<arg>${temp_list}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Create Excel">
+<arg>/result/result1.xlsx</arg>
+<arg>${date_list}</arg>
+<arg>${forecast_list}</arg>
+<arg>${temp_list}</arg>
+<kw name="Create Workbook" library="RPA.Excel.Files">
+<arg>${file_name}</arg>
+<doc>Create and open a new Excel workbook.</doc>
+<status status="PASS" starttime="20240312 09:29:55.614" endtime="20240312 09:29:55.616"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>1</arg>
+<arg>日期</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20240312 09:29:55.616" endtime="20240312 09:29:55.616"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>2</arg>
+<arg>預報</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20240312 09:29:55.616" endtime="20240312 09:29:55.617"/>
+</kw>
+<kw name="Set Worksheet Value" library="RPA.Excel.Files">
+<arg>1</arg>
+<arg>3</arg>
+<arg>氣溫</arg>
+<doc>Alias for keyword ``Set cell value``, see the original keyword
+for documentation.</doc>
+<status status="PASS" starttime="20240312 09:29:55.617" endtime="20240312 09:29:55.617"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${table}</var>
+<arg>日期=${header}</arg>
+<arg>預報=${signals}</arg>
+<arg>氣溫=${body}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240312 09:29:55.618" level="INFO">${table} = {'日期': ['03/12\n星期二', '03/13\n星期三', '03/14\n星期四', '03/15\n星期五', '03/16\n星期六', '03/17\n星期日', '03/18\n星期一'], '預報': ['晴時多雲', '晴時多雲', '多雲', '多雲短暫雨', '多雲短暫雨', '多雲短暫雨', '陰短暫雨'], '氣溫': ['14 - 21', '13 - 19',...</msg>
+<status status="PASS" starttime="20240312 09:29:55.617" endtime="20240312 09:29:55.618"/>
+</kw>
+<kw name="Append Rows To Worksheet" library="RPA.Excel.Files">
+<arg>${table}</arg>
+<doc>Append values to the end of the worksheet.</doc>
+<status status="PASS" starttime="20240312 09:29:55.618" endtime="20240312 09:29:55.618"/>
+</kw>
+<kw name="Save Workbook" library="RPA.Excel.Files">
+<doc>Save the active workbook.</doc>
+<msg timestamp="20240312 09:29:55.619" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: '/result/result1.xlsx'</msg>
+<status status="FAIL" starttime="20240312 09:29:55.619" endtime="20240312 09:29:55.683"/>
+</kw>
+<kw name="Close Workbook" library="RPA.Excel.Files">
+<doc>Close the active workbook.</doc>
+<status status="NOT RUN" starttime="20240312 09:29:55.683" endtime="20240312 09:29:55.683"/>
+</kw>
+<status status="FAIL" starttime="20240312 09:29:55.613" endtime="20240312 09:29:55.683"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:55.613" endtime="20240312 09:29:55.683"/>
+</kw>
+<kw name="Capture Page Screenshot" library="RPA.Browser.Selenium">
+<arg>test.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240312 09:29:55.862" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="test.png"&gt;&lt;img src="test.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20240312 09:29:55.684" endtime="20240312 09:29:55.862"/>
+</kw>
+<status status="PASS" starttime="20240312 09:29:38.283" endtime="20240312 09:29:55.862"/>
+</test>
+<doc>Generate NEWS Title</doc>
+<status status="PASS" starttime="20240312 09:29:36.514" endtime="20240312 09:29:55.864"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
